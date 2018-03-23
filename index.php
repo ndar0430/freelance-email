@@ -1,7 +1,7 @@
 
  <?php
  
- require_once('functions.php');
+ include('functions.php');
 
  ?>
 
@@ -25,7 +25,7 @@
 <body id="page-login">
     <div class="login-container">
         <div class="login-box">
-            <form method="POST" action="#" id="loginForm" autocomplete="off">
+            <form method="POST" action="index.php" id="loginForm" autocomplete="off">
                 <div class="login-form">
                     <input name="form_key" type="hidden" value="3OzWMhicsDbZagt3">
                     <h2>Log in to Admin Panel</h2>
