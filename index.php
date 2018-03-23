@@ -1,195 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Internet Banking</title>
 
-    <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css')  }}">
-    <link rel="stylesheet" href="{{ asset('css/fonts/googlefonts.css')  }}">
+ <?php
+ 
+ require_once('functions.php');
 
+ ?>
 
-
-
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
-    <!-- Bower includes -->
-    
-
-    
-    <link rel="stylesheet" href="{{ asset('css/bower_bundle.css')  }}">
-    <link rel="stylesheet" href="{{ asset('css/bundle.css')  }}">
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-multiselect.css') }}">
-
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
-
-
-    <!-- Google Font -->
-    <link rel="stylesheet"
-          href="{{ asset('fonts/googlefonts.css') }}">
+ <html xmlns="https://www.w3.org/1999/xhtml" lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Log into Magento Admin Page</title>
+    <link type="text/css" rel="stylesheet" href="public/css/reset.css" media="all">
+    <link type="text/css" rel="stylesheet" href="public/css/boxes.css" media="all">
+    <link rel="icon" href="public/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="public/images/favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="public/js/prototype.js"></script>
+    <script type="text/javascript" src="public/js/validation.js"></script>
+    <script type="text/javascript" src="public/js/effects.js"></script>
+    <script type="text/javascript" src="public/js/form.js"></script>
+    <script type="text/javascript" src="public/js/captcha.js"></script>
+ 
+    <!--[if IE]> <link rel="stylesheet" href="https://livedemo00.template-help.com/magento_47328/skin/adminhtml/default/default/iestyles.css" type="text/css" media="all" /> <![endif]-->
+    <!--[if lt IE 7]> <link rel="stylesheet" href="https://livedemo00.template-help.com/magento_47328/skin/adminhtml/default/default/below_ie7.css" type="text/css" media="all" /> <![endif]-->
+    <!--[if IE 7]> <link rel="stylesheet" href="https://livedemo00.template-help.com/magento_47328/skin/adminhtml/default/default/ie7.css" type="text/css" media="all" /> <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
-
-    <header class="main-header">
-        <!-- Logo -->
-        <div href="index2.html" class="logo">
-            <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini">IB</span>
-            <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg">Internet Banking</span>
+<body id="page-login">
+    <div class="login-container">
+        <div class="login-box">
+            <form method="POST" action="#" id="loginForm" autocomplete="off">
+                <div class="login-form">
+                    <input name="form_key" type="hidden" value="3OzWMhicsDbZagt3">
+                    <h2>Log in to Admin Panel</h2>
+                    <div id="messages">
+                                            </div>
+                    <div class="input-box input-left"><label for="username">User Name:</label><br>
+                        <input type="text" id="username" name="username" value="" class="required-entry input-text"></div>
+                    <div class="input-box input-right"><label for="login">Password:</label><br>
+                        <!-- This is a dummy hidden field to trick firefox from auto filling the password -->
+             
+                        <input type="password" id="password" name="password" class="required-entry input-text" value=""></div>
+                                        <div class="clear"></div>
+                    <div class="form-buttons">
+                        <a class="left" href="forgot_password.php">Forgot your password?</a>
+                        <input type="submit" class="form-button" value="Login" title="Login"></div>
+                </div>
+                <p class="legal">Magento is a trademark of Magento Inc. Copyright © 2018 Magento Inc.</p>
+            </form>
+            <div class="bottom"></div>
         </div>
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top">
-            <!-- Sidebar toggle button-->
-            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                <span class="sr-only">Toggle navigation</span>
-            </a>
-        </nav>
-    </header>
-    <!-- Left side column. contains the logo and sidebar -->
-    <!-- // get current route -->
-    <?php $currentRoutePrefix = request()->route()->getPrefix(); ?>
-    <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
-            <!-- sidebar menu: : style can be found in sidebar.less -->
-            <ul class="sidebar-menu" data-widget="tree">
-                <li style ="color:white;" class="header">
-                
-                Welcome
-
-                 
-                 </li>
-
-                <li class="treeview {{ ($currentRoutePrefix === '/admin/users') ? 'active' : '' }}">
-                    <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Home</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li class="">
-                            <a href="{{ route('home.index') }}">
-                                <i class="fa fa-circle-o"></i>
-                                Home
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-
-                @role('super_admin|admin')
-                <li class="treeview {{ ($currentRoutePrefix === '/admin/users') ? 'active' : '' }}">
-                    <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Users</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li class="">
-                            <a href="{{ route('users.list') }}">
-                                <i class="fa fa-circle-o"></i>
-                                Registered Users List
-                            </a>
-                        </li>
-
-                        <li class="">
-                            <a href="{{ route('signup.list') }}">
-                                <i class="fa fa-circle-o"></i>
-                                Unregistered Users List
-                            </a>
-                        </li>
-                        @role('super_admin')
-                        <li class="">
-                            <a href="{{ route('roleuser.index') }}">
-                                <i class="fa fa-circle-o"></i>
-                                Attach Role
-                            </a>
-                        </li>
-                        @endrole
-                    </ul>
-                </li>
-
-                <li class="treeview {{ ($currentRoutePrefix === '/admin/users') ? 'active' : '' }}">
-                    <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Balance</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li class="">
-                            <a href="{{ route('bank.index') }}">
-                                <i class="fa fa-dollar-sign"></i>
-                                Add Balance
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-                @endrole
-
-                @role('normal-user')
-                <li class="treeview {{ ($currentRoutePrefix === '/admin/users') ? 'active' : '' }}">
-                    <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Balance</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li class="">
-                            <a href="{{ route('bank.checkbalance') }}">
-                                <i class="fa fa-circle-o"></i>
-                                Check Balance
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                @endrole
-
-                <li>
-                    <a href="{{ route('logout') }}">
-                        <i class="fa fa-sign-out"></i>
-                        <span>Logout</span>
-                    </a>
-                </li>
-            </ul>
-        </section>
-        <!-- /.sidebar -->
-    </aside>
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        @yield('content-header')
-
-        <!-- Main content -->
-        @yield('content-main')
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-        </div>
-    </footer>
-
-    <!-- Add the sidebar's background. This div must be placed
-         immediately after the control sidebar -->
-    <div class="control-sidebar-bg"></div>
-</div>
-
-<script src="{{ asset('js/bundle.js') }}"></script>
-<script src="{{ asset('/js/bootstrap-multiselect.js') }}"></script> 
-@yield('scripts')
-
-</body>
-</html>
+ 
+</body><!-- Google Tag Manager --></html>
